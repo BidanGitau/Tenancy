@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row">
+
+
+        <div class="col-md-12 d-flex flex-column justify-content-center align-items-center  bg-light p-5 card">
+            <%=form_for(@ticket,data: {turbo: false}) do |f|%>
+                <div class="form-group text-center mb-1">
+                    <%= f.label :title %>
+                        <%= f.text_field :title, class: 'form-control active' %>
+                </div>
+                <div class="form-group text-center">
+                    <%= f.label :description %>
+                        <%= f.text_field :description, class: 'form-control active' %>
+                </div>
+
+                <div class="b_submit d-flex justify-content-center align-content-center">
+                    <%= f.submit "Ticket" , class: " mt-2 btn btn-primary" %>
+                </div>
+                <%end%>
+        </div>
+
+    </div>
+</div>

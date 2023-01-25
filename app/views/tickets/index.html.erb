@@ -1,0 +1,14 @@
+<h1>Tickets#index</h1>
+<p>Find me in app/views/tickets/index.html.erb</p>
+<ul>
+    <%@tickets.each do|ticket|%>
+
+        <li>
+            <%=ticket.description%>
+        </li>
+
+
+        <%end%>
+</ul>
+<%= notice%>
+    <%= link_to "logout" ,logout_path,data: {turbo_method: :delete}%>

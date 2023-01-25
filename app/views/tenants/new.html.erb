@@ -1,0 +1,49 @@
+<div class="container signup ">
+
+    <div class="vh-100 d-flex align-items-center justify-content-center p-5">
+
+        <div class="row d-flex align-items-center justify-content-center shadow ">
+            <div class="col-md-6 col-sm-12 col-xs-12 border-1 p-5 ">
+                <h5 class=" d-block text-center fw-bolder p-3 text-uppercase " style="color: #c9692a;">Kaa
+                    Kwako na TumyTenant
+                </h5>
+                <%= image_tag('vacancies.svg',class:"signup-img")%>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12  p-5 ">
+                <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">Personal Details </h6>
+                <%=form_with model: @tenants,data: {turbo: false} do |f|%>
+                    <div class="form-group  mb-1">
+                        <%= f.label :firstname %>
+                            <%= f.text_field :firstname, class: 'form-control active' %>
+                    </div>
+                    <div class=" form-group mb-3">
+                        <%=f.label :lastname,class:"form-label"%>
+                            <%=f.text_field :lastname,class:"form-control"%>
+                    </div>
+                    <div class=" form-group mb-3">
+                        <%=f.label :phone,class:"form-label"%>
+                            <%=f.text_field :phone,class:"form-control"%>
+                    </div>
+                    <div class="form-group ">
+                        <%= f.label :email ,class:"form-label" %>
+                            <%= f.email_field :email, class: 'form-control active' %>
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                </div>
+                    </div>
+                    <div class=" form-group mb-3">
+                        <%=f.label :password,class:"form-label"%>
+                            <%=f.password_field :password, class:"form-control"%>
+                    </div>
+                    <div class=" form-group mb-3">
+                        <%=f.label :password_confirmation,class:"form-label"%>
+                            <%=f.password_field :password_confirmation, class:"form-control"%>
+                    </div>
+                    <div class="b_submit d-flex justify-content-center align-content-center">
+                        <%= f.submit "Create Account" , class: " mt-2 me-3 btn btn-primary" %>
+                            <%= link_to "Already have an account?" ,login_path, class: "text-white mt-2 btn  " %>
+                    </div>
+                    <%end%>
+            </div>
+        </div>
+    </div>
+</div>
