@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     tenant=Tenant.find_by(email: params[:sessions][:email].downcase)
      if tenant
       session[:tenant_id]=tenant.id
-      redirect_to tickets_path
+      redirect_to property_path
       flash[:notice]="new progress"
       
      else

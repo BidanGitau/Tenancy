@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid text-white">
         <a class="navbar-brand" href="#">
             TumyTenant
         </a>
@@ -7,7 +7,7 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">TumyTenant</a>
@@ -34,8 +34,8 @@
                 </li>
             </ul>
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+
+                <%= link_to "logout" ,logout_path,data: {turbo_method: :delete},class:"btn text-uppercase text-white"%>
             </form>
         </div>
     </div>

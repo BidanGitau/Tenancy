@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'members/index'
+  get 'members/new'
+  get 'members/edit'
+  get 'members/show'
  root "pages#home"
  get "property", to: "pages#index"
  resources :tenants

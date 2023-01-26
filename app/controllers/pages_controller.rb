@@ -4,7 +4,11 @@ class PagesController < ApplicationController
     def home
     end
     def index
-        
+       if logged_user?
+        if session[:tenant_id]
+          @tenant=current_tenant_log
+        end
+       end
     end
     
 end
