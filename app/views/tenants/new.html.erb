@@ -10,7 +10,8 @@
                 <%= image_tag('vacancies.svg',class:"signup-img")%>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12  p-5 ">
-                <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">Personal Details </h6>
+                <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">LandLord Personal Details
+                </h6>
                 <%=form_with model: @tenants,data: {turbo: false} do |f|%>
                     <div class="form-group  mb-1">
                         <%= f.label :firstname %>
