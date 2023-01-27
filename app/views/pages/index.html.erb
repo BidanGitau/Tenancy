@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg  " style="background-color: rgb(7, 37, 102);">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
             aria-controls="offcanvasExample">
             <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
         </button>
-        <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold" href="#">TumyTenant</a>
+        <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold text-white" href="#">TumyTenant</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar"
             aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -13,13 +13,13 @@
             <div class="d-flex ms-auto my-3 my-lg-0 fw-bolder text-white">
                 <%= @tenant.firstname%>
             </div>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav text-white">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle ms-2 text-white" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <i class="bi bi-person-fill"></i>
+                        <i class="bi bi-person-fill text-white"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end border-0 shadow-none">
+                    <div class="dropdown-menu dropdown-menu-end border-0 text-white ">
 
                         <div
                             class="justify-content-center align-items-center d-flex mb-1  text-center shadow-sm fw-semibold text-white   ">
@@ -42,28 +42,33 @@
 </nav>
 <!-- top navigation bar -->
 <!-- offcanvas -->
-<div class="offcanvas offcanvas-backdrop     sidebar-nav bg-dark" tabindex="-1" id="sidebar">
+<div class="offcanvas offcanvas-backdrop     sidebar-nav " tabindex="-1" id="sidebar"
+    style="background-color: rgb(7, 37, 102);">
     <div class="offcanvas-body p-0">
         <nav class="navbar-dark">
             <ul class="navbar-nav">
 
+
+                <li class="my-1">
+                    <hr class="dropdown-divider bg-danger" />
+                </li>
                 <li>
-                    <a href="#" class="nav-link px-3 active">
+                    <div class=" small text-white fw-bold text-white text-uppercase px-3 mb-3">
                         <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="my-4">
-                    <hr class="dropdown-divider bg-light" />
-                </li>
-                <li>
-                    <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
                         General
                     </div>
                 </li>
+
                 <li>
-                    <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts">
-                        <span class="me-2"><i class="bi bi-layout-split"></i></span>
+                    <a href="#" class="nav-link px-3 text-white">
+                        <span class="me-2"><i class="bi bi-person"></i></span>
+                        <span>LandLords</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="nav-link px-3 sidebar-link text-white" data-bs-toggle="collapse" href="#layouts">
+                        <span class="me-2"><i class="bi bi-layers"></i></span>
                         <span>Properties</span>
                         <span class="ms-auto">
                             <span class="right-icon">
@@ -74,40 +79,45 @@
                     <div class="collapse" id="layouts">
                         <ul class="navbar-nav ps-3">
                             <li>
-                                <a href="#" class="nav-link px-3">
-                                    <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-                                    <span>Dashboard</span>
+                                <a href="#" class="nav-link px-3 text-white">
+                                    <span class="me-2"><i class="bi bi-house-add"></i></span>
+                                    <span>Tamirat court</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a href="#" class="nav-link px-3">
-                        <span class="me-2"><i class="bi bi-book-fill"></i></span>
-                        <span>Individual Properties</span>
-                    </a>
-                </li>
                 <li class="my-3">
                     <hr class="dropdown-divider" style="background-color: brown;" />
                 </li>
-
                 <li>
-                    <a href="#" class="nav-link px-3">
-                        <span class="me-2"><i class="bi bi-table"></i></span>
+                    <a href="#" class="nav-link px-3 text-white">
+                        <span class="me-2"><i class="bi bi-house-door"></i></span>
                         <span>Tenants</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link px-3">
-                        <span class="me-2"><i class="bi bi-table"></i></span>
+                    <a href="#" class="nav-link px-3 text-white">
+                        <span class="me-2"><i class="bi bi-house-dash"></i></span>
                         <span>Units</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link px-3">
-                        <span class="me-2"><i class="bi bi-table"></i></span>
+                    <a href="#" class="nav-link px-3 text-white">
+                        <span class="me-2"><i class="bi bi-layout-split"></i></span>
+                        <span>Leases</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link px-3 text-white">
+                        <span class="me-2"><i class="bi bi-chat-right-dots-fill"></i></span>
                         <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link px-3 text-white">
+                        <span class="me-2"><i class="bi bi-person-fill-check"></i></span>
+                        <span>Profile</span>
                     </a>
                 </li>
             </ul>
@@ -118,7 +128,7 @@
 <main class=" pt-3">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 text-white">
                 <h4>Dashboard</h4>
             </div>
         </div>
@@ -179,8 +189,13 @@
         <div class="row">
             <div class="col-md-12 mb-3">
                 <div class="card">
-                    <div class="card-header">
-                        <span><i class="bi bi-table me-2"></i></span> Recent enrolled Tenants
+                    <div class="card-header d-flex justify-content-between align-content-center text-center">
+                        <div> <span><i class="bi bi-table me-2"></i></span> Property House Occupants</div>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Tamirat Court ...tenants"
+                                aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
