@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'admin/index'
   get 'members/index'
   get 'members/new'
   get 'members/edit'
