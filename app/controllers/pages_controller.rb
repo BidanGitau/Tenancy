@@ -1,14 +1,11 @@
 class PagesController < ApplicationController
-  skip_before_action :current_tenant_log,only: [:home]
+ before_action :authenticate_user!,only: [:index]
+ before_action :set_current_account,only: [:index]
 
     def home
     end
     def index
-       if logged_user?
-        if session[:tenant_id]
-          @tenant=current_tenant_log
-        end
-       end
+       
     end
     
 end

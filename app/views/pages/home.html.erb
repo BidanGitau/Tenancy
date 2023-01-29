@@ -5,8 +5,8 @@
       <h1 class="text-white fw-bold">Sign a lease. Get Paid.</h1>
       <h4 class="text-white fw-bold">All in one place with TumyTenant Rental Manager</h4>
       <div class=" log-section ">
-        <%=link_to "Login" ,login_path,class:"btn btn-outline-secondary text-white"%>
-          <%=link_to "Create Account" ,new_tenant_path,class:"btn btn-outline-secondary text-white"%>
+        <%=link_to "Login" ,user_session_path,class:"btn btn-outline-secondary text-white"%>
+          <%=link_to "Create Account" ,new_user_registration_path,class:"btn btn-outline-secondary text-white"%>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
               <p class="card-text">Easy-to-use tools let you list your property where millions of renters search each
                 month. Plus, messaging and tenant screening are integrated into our listing platform to help you find
                 and screen applicants faster.</p>
-              <%=link_to "Create Account" ,new_tenant_path,class:"btn btn-outline-secondary text-white"%>
+              <%=link_to "Create Account" ,new_user_registration_path,class:"btn btn-outline-secondary text-white"%>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@
               <h5 class="card-title" style="color:  rgb(240, 109, 33)">Sign a rental lease</h5>
               <p class="card-text">Create your rental lease using our online lease builder and templates drafted with
                 local law firms, or upload your own lease and e-sign it with your renters</p>
-              <%=link_to "Create Account" ,tenants_path,class:"btn btn-outline-secondary text-white"%>
+              <%=link_to "Create Account" , new_user_registration_path,class:"btn btn-outline-secondary text-white"%>
             </div>
           </div>
         </div>

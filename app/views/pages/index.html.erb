@@ -11,7 +11,7 @@
         </button>
         <div class="collapse navbar-collapse" id="topNavBar">
             <div class="d-flex ms-auto my-3 my-lg-0 fw-bolder text-white">
-                <%= @tenant.firstname%>
+                <%=current_user.firstname%>jj
             </div>
             <ul class="navbar-nav text-white">
                 <li class="nav-item dropdown">
@@ -23,7 +23,7 @@
 
                         <div
                             class="justify-content-center align-items-center d-flex mb-1  text-center shadow-sm fw-semibold text-white   ">
-                            <%=link_to "Logout" ,logout_path,data: {turbo_method:
+                            <%=link_to "Logout" ,destroy_user_session_path,data: {turbo_method:
                                 :delete},class: " dropdown-item btn btn-primary text-white fw-semibold text-uppercase "
                                 %>
                         </div>
@@ -159,7 +159,7 @@
             <div class="col-md-3 mb-3">
                 <div class="card text-center fw-bold text-black h-100"
                     style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
-                    <div class="card-body py-5"> <span class="me-2"><i class="bi bi-plus"></i></span>Create a Ticket
+                    <div class="card-body py-5"> <span class="me-2"><i class="bi bi-plus"></i></span> Create a Ticket
                     </div>
 
                 </div>
@@ -228,7 +228,7 @@
                                 <tfoot>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Position</th>
+                                        <th>House No</th>
                                         <th>Office</th>
                                         <th>Age</th>
                                         <th>Start date</th>

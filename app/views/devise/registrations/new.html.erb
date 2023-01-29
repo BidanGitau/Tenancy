@@ -1,0 +1,57 @@
+<div class="container signup ">
+
+  <div class="vh-100 d-flex align-items-center justify-content-center p-5">
+
+    <div class="row d-flex align-items-center justify-content-center shadow ">
+      <div class="col-md-6 col-sm-12 col-xs-12 border-1 p-5 ">
+        <h5 class=" d-block text-center fw-bolder p-3 text-uppercase " style="color: #c9692a;">Kaa
+          Kwako na TumyTenant
+          <%= render "devise/shared/error_messages" , resource: resource %>
+
+
+        </h5>
+        <%= image_tag('vacancies.svg',class:"signup-img")%>
+      </div>
+      <div class="col-md-6 col-sm-12 col-xs-12  p-5 ">
+        <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">LandLord Personal Details
+        </h6>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="form-group  mb-3">
+            <%= f.label :firstname,class:"mb-2" %><br>
+              <%=f.text_field :firstname, autofocus: true, placeholder:"enter firstname", class:"form-control" %>
+          </div>
+          <div class=" form-group mb-3">
+            <%= f.label :lastname,class:"mb-2" %>
+              <%= f.text_field :lastname, autofocus: true,placeholder:"enter lastname",class:"form-control" %>
+          </div>
+
+          <div class="form-group ">
+            <%= f.label :email ,class:"form-label" %>
+              <%= f.email_field :email, class: 'form-control active' %>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                </div>
+          </div>
+          <div class=" form-group mb-2">
+            <%= f.label :password %>
+              <% if @minimum_password_length %>
+                <em class="form-text">(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                  <%= f.password_field :password, autocomplete: "new-password" ,class:"form-control" %>
+          </div>
+          <div class=" form-group mb-2">
+            <%=f.label :password_confirmation,class:"form-label"%>
+              <%=f.password_field :password_confirmation, class:"form-control"%>
+          </div>
+          <div class="b_submit d-flex justify-content-center align-content-center">
+            <%= f.submit "Create Account" , class: " mt-2 me-3 btn btn-primary" %>
+
+          </div>
+          <%end%>
+      </div>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+
+
+
+</div>
