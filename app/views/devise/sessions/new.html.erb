@@ -5,6 +5,11 @@
         <i class="fa-solid fa-mug-hot " style="font-size: 30px; color:brown;"></i>
         <h4 class="mb-3 fw-bolder">Welcome to TumyTenant</h4>
       </div>
+      <div class="col-md-5 col-sm-12 col-xs-12 border-1   border-dark bg-light">
+        <%= image_tag('Apartment.svg',class:"signup-img")%>
+          <div>
+          </div>
+      </div>
       <div class="col-md-6   bg-light p-5   ">
         <h6 class="mb-3 fw-bolder text-uppercase text-center"> Signin to TumyTenant</h6>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -25,11 +30,7 @@
               Dont have an account? <%= render "devise/shared/links" %>
             </div>
       </div>
-      <div class="col-md-5 col-sm-12 col-xs-12 border-1   border-dark bg-light">
-        <%= image_tag('Apartment.svg',class:"signup-img")%>
-          <div>
-          </div>
-      </div>
+
     </div>
   </div>
 </div>
