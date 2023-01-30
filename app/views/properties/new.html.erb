@@ -1,2 +1,54 @@
-<h1>Properties#new</h1>
-<p>Find me in app/views/properties/new.html.erb</p>
+<div class="container signup ">
+    <div class="vh-100 align-items-center justify-content-center p-5">
+        <p class="  align-items-center justify-content-center text-start fw-bolder p-3 text-uppercase ">
+            <%=link_to '<i class="bi-arrow-left-circle text-black  text-center fa-2x  "></i>' .html_safe ,
+                dashboard_url%>
+        </p>
+        <div class="row d-flex align-items-center justify-content-center shadow ">
+            <div class="col-5 mt-4">
+                <div class="card mb-3 border-0">
+
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:  rgb(240, 109, 33)">List New Property</h5>
+                        <p class="card-text">Create your rental lease using our online lease builder and templates
+                            drafted with
+                            local law firms, or upload your own lease and e-sign it with your renters</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12  p-5 ">
+                <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">New Property
+                </h6>
+                <%=form_with model: @tenants,data: {turbo: false} do |f|%>
+                    <div class="form-group  mb-1">
+                        <%= f.label :name %>
+                            <%= f.text_field :name, class: 'form-control active' %>
+                    </div>
+                    <div class=" form-group mb-3">
+                        <%=f.label :location,class:"form-label"%>
+                            <%=f.text_field :location,class:"form-control"%>
+                    </div>
+                    <div class="form-group  mb-1">
+                        <%= f.label :type %>
+                            <%= f.text_field :type, class: 'form-control active' %>
+                    </div>
+                    <div class=" form-group mb-3">
+                        <%=f.label :category,class:"form-label"%>
+                            <%=f.text_field :category,class:"form-control"%>
+                    </div>
+                    <div class=" form-group mb-3">
+                        <%=f.label :units,class:"form-label"%>
+                            <%=f.text_field :units,class:"form-control"%>
+                    </div>
+
+                    <div class="b_submit d-flex justify-content-center align-content-center">
+                        <%= f.submit 'Create New' .html_safe , class: " mt-2
+                            me-3 btn
+                            btn-primary" %>
+                    </div>
+                    <%end%>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,10 +9,10 @@
             <div class="col-md-3 mb-3">
                 <div class="card text-black text-center fw-bold h-100"
                     style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
-                    <div class="card-body py-5"> <span class="me-2">
-
-                            <i class="bi bi-plus"></i></span>Create
-                        Units</div>
+                    <div class="card-body py-5">
+                        <%=link_to '<i class="bi bi-plus"></i></span>Invite Tenants'
+                            .html_safe,new_tenant_path,class:""%>
+                    </div>
 
                 </div>
             </div>
@@ -20,8 +20,8 @@
                 <div class="card  text-center fw-bold text-dark h-100"
                     style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
                     <div class="card-body py-5"> <span class="me-2">
-                            <%=link_to '<i class="bi bi-plus"></i></span>Invite Tenants'
-                                .html_safe,new_tenant_path,class:""%>
+                            <%=link_to '<i class="bi bi-plus"></i></span>Create Unit'
+                                .html_safe,new_unit_path,class:""%>
 
                         </span>
                     </div>
@@ -31,14 +31,20 @@
             <div class="col-md-3 mb-3">
                 <div class="card  text-center fw-bold text-black h-100"
                     style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
-                    <div class="card-body py-5"> <span class="me-2"><i class="bi bi-plus"></i></span>Create Lease</div>
+                    <div class="card-body py-5"> <span class="me-2">
+
+                            <%=link_to '<i class="bi bi-plus"></i></span>Create Property'
+                                .html_safe,new_property_path,class:""%>
+                    </div>
 
                 </div>
             </div>
             <div class="col-md-3 mb-3">
                 <div class="card text-center fw-bold text-black h-100"
                     style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
-                    <div class="card-body py-5"> <span class="me-2"><i class="bi bi-plus"></i></span> Create a Ticket
+                    <div class="card-body py-5">
+
+                        <%=link_to '<i class="bi bi-plus"></i></span>Create Lease' .html_safe,"#",class:""%>
                     </div>
 
                 </div>

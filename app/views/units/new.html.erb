@@ -9,7 +9,7 @@
                 <div class="card mb-3 border-0">
 
                     <div class="card-body">
-                        <h5 class="card-title" style="color:  rgb(240, 109, 33)">Createe Unit</h5>
+                        <h5 class="card-title" style="color:  rgb(240, 109, 33)"> List New Unit</h5>
                         <p class="card-text">Create your rental lease using our online lease builder and templates
                             drafted with
                             local law firms, or upload your own lease and e-sign it with your renters</p>
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12  p-5 ">
-                <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">Invite New Tenant
+                <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">New Unit
                 </h6>
                 <%=form_with model: @tenants,data: {turbo: false} do |f|%>
                     <div class="form-group  mb-1">
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="b_submit d-flex justify-content-center align-content-center">
-                        <%= f.submit 'New Unit' .html_safe , class: " mt-2
+                        <%= f.submit 'Create New ' .html_safe , class: " mt-2
                             me-3 btn
                             btn-primary" %>
                     </div>
