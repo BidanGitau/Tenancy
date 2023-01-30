@@ -11,98 +11,98 @@
     </div>
   </div>
 </section>
-<%# info section card %>
-  <section class="info-section m-2 ">
-    <div class="container">
-      <h4 class=" text-center fw-bold p-3" style="color: #3359df;">It's easier than ever to be a landlord</h4>
-      <div class="row gx-4">
-        <div class="col-5">
-          <div class="card mb-3 border-0">
 
-            <div class="card-body">
-              <h5 class="card-title" style="color:  rgb(240, 109, 33)">Post a rental listing</h5>
-              <p class="card-text">Easy-to-use tools let you list your property where millions of renters search each
-                month. Plus, messaging and tenant screening are integrated into our listing platform to help you find
-                and screen applicants faster.</p>
-              <%=link_to "Create Account" ,new_user_registration_path,class:"btn btn-outline-secondary text-white"%>
-            </div>
+<section class="info-section m-2 ">
+  <div class="container">
+    <h4 class=" text-center fw-bold p-3" style="color: #3359df;">It's easier than ever to be a landlord</h4>
+    <div class="row gx-4">
+      <div class="col-5">
+        <div class="card mb-3 border-0">
+
+          <div class="card-body">
+            <h5 class="card-title" style="color:  rgb(240, 109, 33)">Post a rental listing</h5>
+            <p class="card-text">Easy-to-use tools let you list your property where millions of renters search each
+              month. Plus, messaging and tenant screening are integrated into our listing platform to help you find
+              and screen applicants faster.</p>
+            <%=link_to "Create Account" ,new_user_registration_path,class:"btn btn-outline-secondary text-white"%>
           </div>
         </div>
-        <div class="col-7 position-relative">
-          <div class="card info-img mb-3 ">
-            <%= image_tag('house3.jpg', style: "height: 350px; width:100%;object-fit:cover" ) %>
+      </div>
+      <div class="col-7 position-relative">
+        <div class="card info-img mb-3 ">
+          <%= image_tag('house3.jpg', style: "height: 350px; width:100%;object-fit:cover" ) %>
 
-              <div
-                class="  card-info card-body text-center position-absolute border-3 border-success shadow-lg bg-light text-black "
-                style="width: 20rem;">
-                <div class="card-body">
-                  <%= image_tag('vacancies.svg', style: "object-fit:cover;height:70px" ) %>
-                    <form>
-                      <fieldset disabled>
-                        <div class="mb-1 disabled">
-                          <label class="form-label fw-bold">Rent</label>
-                          <input type="text" class="form-control" value="20,000">
+            <div
+              class="  card-info card-body text-center position-absolute border-3 border-success shadow-lg bg-light text-black "
+              style="width: 20rem;">
+              <div class="card-body">
+                <%= image_tag('vacancies.svg', style: "object-fit:cover;height:70px" ) %>
+                  <form>
+                    <fieldset disabled>
+                      <div class="mb-1 disabled">
+                        <label class="form-label fw-bold">Rent</label>
+                        <input type="text" class="form-control" value="20,000">
 
-                        </div>
-                        <div class="mb-1 disabled">
-                          <label class="form-label fw-bold">Duration</label>
-                          <input type="text" class="form-control disabled" value="4">
-                        </div>
-                      </fieldset>
+                      </div>
+                      <div class="mb-1 disabled">
+                        <label class="form-label fw-bold">Duration</label>
+                        <input type="text" class="form-control disabled" value="4">
+                      </div>
+                    </fieldset>
 
-                    </form>
-                </div>
+                  </form>
+              </div>
+
+            </div>
+        </div>
+      </div>
+      <!-- papapap sec -->
+      <h4 class=" text-center fw-bold p-3" style="color: #3359df;">Fill vacancies and manage properties</h4>
+      <div class="col-7 position-relative">
+        <div class="card info-img mb-3 ">
+          <%= image_tag('contract-min.jpg', style: "height: 350px; width:100%;object-fit:cover" ) %>
+
+            <div class=" card-info card-body text-center position-absolute  shadow-lg bg-light text-black "
+              style="width: 20rem;">
+              <div class="card-body">
+                <%= image_tag('trust.svg', style: "object-fit:cover;height:70px" ) %>
+
+                  <h6 class="card-title p-1" style="color: #3359df;">What are your lease terms?</h6>
+                  <ul class="list-group ">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class=" me-auto">
+                        <div class="fw-bold">Fixed Term</div>
+
+                      </div>
+                      <span class="badge bg-primary rounded-pill">12</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class=" me-auto">
+                        <div class="fw-bold">Month-to-Month</div>
+
+                      </div>
+                      <span class="badge bg-primary rounded-pill">1</span>
+                    </li>
+
+                  </ul>
+
 
               </div>
-          </div>
-        </div>
-        <!-- papapap sec -->
-        <h4 class=" text-center fw-bold p-3" style="color: #3359df;">Fill vacancies and manage properties</h4>
-        <div class="col-7 position-relative">
-          <div class="card info-img mb-3 ">
-            <%= image_tag('contract-min.jpg', style: "height: 350px; width:100%;object-fit:cover" ) %>
 
-              <div class=" card-info card-body text-center position-absolute  shadow-lg bg-light text-black "
-                style="width: 20rem;">
-                <div class="card-body">
-                  <%= image_tag('trust.svg', style: "object-fit:cover;height:70px" ) %>
-
-                    <h6 class="card-title p-1" style="color: #3359df;">What are your lease terms?</h6>
-                    <ul class="list-group ">
-                      <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class=" me-auto">
-                          <div class="fw-bold">Fixed Term</div>
-
-                        </div>
-                        <span class="badge bg-primary rounded-pill">12</span>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class=" me-auto">
-                          <div class="fw-bold">Month-to-Month</div>
-
-                        </div>
-                        <span class="badge bg-primary rounded-pill">1</span>
-                      </li>
-
-                    </ul>
-
-
-                </div>
-
-              </div>
-          </div>
-        </div>
-        <div class="col-5 mt-4">
-          <div class="card mb-3 border-0">
-
-            <div class="card-body">
-              <h5 class="card-title" style="color:  rgb(240, 109, 33)">Sign a rental lease</h5>
-              <p class="card-text">Create your rental lease using our online lease builder and templates drafted with
-                local law firms, or upload your own lease and e-sign it with your renters</p>
-              <%=link_to "Create Account" , new_user_registration_path,class:"btn btn-outline-secondary text-white"%>
             </div>
+        </div>
+      </div>
+      <div class="col-5 mt-4">
+        <div class="card mb-3 border-0">
+
+          <div class="card-body">
+            <h5 class="card-title" style="color:  rgb(240, 109, 33)">Sign a rental lease</h5>
+            <p class="card-text">Create your rental lease using our online lease builder and templates drafted with
+              local law firms, or upload your own lease and e-sign it with your renters</p>
+            <%=link_to "Create Account" , new_user_registration_path,class:"btn btn-outline-secondary text-white"%>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

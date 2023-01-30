@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     ActsAsTenant.current_tenant = current_account
   end
   def after_sign_in_path_for(_resource)
-    dashboard_path(current_user) # Redirects to the user's dashboard page
+    dashboard_path() # Redirects to the user's dashboard page
   end
   protected
   def configure_permitted_parameters

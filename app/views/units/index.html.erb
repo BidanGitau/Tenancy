@@ -10,7 +10,7 @@
                             dashboard_url%>
                     </div>
                     <div>
-                        <h4 class=" text-center fw-bold mt-4 " style="color: #3359df;">Tenants Tamirat Court</h4>
+                        <h4 class=" text-center fw-bold mt-4 " style="color: #3359df;">Units in Tamirat Court</h4>
                     </div>
 
                 </div>
@@ -30,8 +30,7 @@
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>
 
-                            <%=link_to '<i class="bi bi-plus"></i></span>Invite Tenants'
-                                .html_safe,new_tenant_path,class:" "%>
+                            <%=link_to '<i class="bi bi-plus"></i></span>Create Unit' .html_safe,new_tenant_path,class:" "%>
 
                         </div>
                         <div class=" card-body">
@@ -41,39 +40,30 @@
                                         style="width: 100%">
                                         <thead>
                                             <tr>
-                                                <th>Tenant Name</th>
                                                 <th>Unit Name</th>
-                                                <th>Rent </th>
+                                                <th>Unit Details</th>
+                                                <th>Rent</th>
                                                 <th>Status</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>El Hessy</td>
-                                                <td>Block C</td>
+                                                <td>Block 3</td>
+                                                <td>3 Bathrooms,3 beddrooms</td>
                                                 <td>50,000</td>
 
-                                                <td>Clear</td>
+                                                <td>Vacant</td>
 
                                             </tr>
-                                            <tr>
-                                                <td>El Hessy</td>
-                                                <td>Block C</td>
-                                                <td>50,000</td>
-
-                                                <td>Clear</td>
-
-                                            </tr>
-
 
 
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Tenant Name</th>
                                                 <th>Unit Name</th>
-                                                <th>Rent </th>
+                                                <th>Unit Details</th>
+                                                <th>Rent</th>
                                                 <th>Status</th>
                                             </tr>
                                         </tfoot>

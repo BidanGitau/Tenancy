@@ -1,0 +1,87 @@
+<%=render "shared/dashnav" %>
+    <main class=" pt-3">
+        <div class="container-fluid">
+
+            <div class="row ">
+
+                <div class="col-md-12 mb-3  d-flex aligns-items-center justify-content-start  ">
+                    <div class="   fw-bolder p-3 text-uppercase ">
+                        <%=link_to '<i class="bi-arrow-left-circle text-black  fa-2x  "></i>' .html_safe ,
+                            dashboard_url%>
+                    </div>
+                    <div>
+                        <h4 class=" text-center fw-bold mt-4 " style="color: #3359df;">Tenants Tamirat Court</h4>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-3">
+
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-content-center text-center">
+
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Tamirat Court ...tenants"
+                                    aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+
+                            <%=link_to '<i class="bi bi-plus"></i></span>Create Property'
+                                .html_safe,new_tenant_path,class:""%>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="example" class="table table-striped-columns table-striped data-table"
+                                    style="width: 100%">
+                                    <thead>
+                                        <tr>
+                                            <th> Name</th>
+                                            <th>Property Type</th>
+                                            <th>No of Units </th>
+                                            <th>LandLords</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tamirat Court</td>
+                                            <td>Residential</td>
+                                            <td>12</td>
+
+                                            <td>El Pesa</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Tamirat Court</td>
+                                            <td>Residential</td>
+                                            <td>12</td>
+
+                                            <td>El Pesa</td>
+
+                                        </tr>
+
+
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th> Name</th>
+                                            <th>Property Type</th>
+                                            <th>No of Units </th>
+                                            <th>LandLords</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
