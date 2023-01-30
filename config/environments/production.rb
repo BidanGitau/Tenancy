@@ -91,12 +91,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :user_name            =>'bydangitau@gmail.com',
-    :password             => 'silicon@valley',
-    :authentication       => "plain",
-    :enable_starttls_auto => true
-    }
+  # ActionMailer::Base.smtp_settings = {
+  #   :user_name => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+  #   :password => Rails.application.credentials.dig(:sendgrid, :access_key), # This is the secret sendgrid API key which was issued during API key creation
+  #   :domain => 'tenancy-production.up.railway.app',
+  #       :address => 'smtp.gmail.com',
+  #       :port => 587,
+  #       :authentication => :plain,
+  #       :enable_starttls_auto => true
+  # }
 end
