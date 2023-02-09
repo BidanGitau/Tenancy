@@ -36,8 +36,7 @@
                         </div>
                         <div class=" card-body">
                                 <div class="table-responsive">
-                                    <table id="example"
-                                        class="table  table-dark table-hover table-striped-columns table-striped data-table"
+                                    <table id="example" class="table  table-dark table-hover  table-striped data-table"
                                         style="width: 100%">
                                         <thead>
                                             <tr>
@@ -49,22 +48,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>El Hessy</td>
-                                                <td>Block C</td>
-                                                <td>50,000</td>
+                                            <%@tenants.each do |tenant|%>
+                                                <tr>
+                                                    <td>
 
-                                                <td>Clear</td>
+                                                        <%=tenant.email%>jj
+                                                    <td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>El Hessy</td>
-                                                <td>Block C</td>
-                                                <td>50,000</td>
+                                                        <%=tenant.firstname%>jj
+                                                    <td>
+                                                        <%=tenant.firstname%>
+                                                    </td>
+                                                    <td>
+                                                        <%=tenant.lastname%>
+                                                    </td>
 
-                                                <td>Clear</td>
 
-                                            </tr>
+                                                    <%end%>
+                                                </tr>
 
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_30_134043) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_31_091637) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_30_134043) do
     t.string "lastname"
     t.integer "phone"
     t.string "password_digest"
+    t.integer "account_id"
+    t.index ["account_id"], name: "index_tenants_on_account_id"
   end
 
   create_table "tickets", force: :cascade do |t|
