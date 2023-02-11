@@ -4,13 +4,15 @@
 
             <div class="row ">
 
+
                 <div class="col-md-12 mb-3  d-flex aligns-items-center justify-content-start  ">
                     <div class="   fw-bolder p-3 text-uppercase ">
                         <%=link_to '<i class="bi-arrow-left-circle text-black  fa-2x  "></i>' .html_safe ,
                             dashboard_url%>
                     </div>
                     <div>
-                        <h4 class=" text-center fw-bold mt-4 " style="color: #3359df;">Tenants Tamirat Court</h4>
+                        <h4 class=" text-center fw-bold mt-4 " style="color: #3359df;">Properties
+                        </h4>
                     </div>
 
                 </div>
@@ -36,10 +38,10 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="example" class="table table-striped-columns table-striped data-table"
-                                    style="width: 100%">
+                                <table class="table gap-1 " style="width: 100%">
                                     <thead>
-                                        <tr>
+                                        <tr
+                                            style="font-weight:bold ; text-shadow: 1px 1px #3359df; color: #3359df; font-size: larger; color: #3359df;">
                                             <th> Name</th>
                                             <th>Property Type</th>
                                             <th>No of Units </th>
@@ -47,36 +49,34 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tamirat Court</td>
-                                            <td>Residential</td>
-                                            <td>12</td>
-
-                                            <td>El Pesa</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Tamirat Court</td>
-                                            <td>Residential</td>
-                                            <td>12</td>
-
-                                            <td>El Pesa</td>
-
-                                        </tr>
+                                    <tbody style=" text-transform: uppercase; text-shadow: 1px  2px 2px #7cb8e0">
+                                        <div class="chart-container" width="400px" height="400px">
+                                            <%= line_chart @properties.group_by(:created_at).count %>
+                                        </div>
 
 
+                                        <% @properties.each do |prop|%>
+
+                                            <td>
+                                                <%=prop.name%>
+                                            </td>
+                                            <td>
+                                                <%=prop.property_type%>
+                                            </td>
+                                            <td>
+                                                <%=prop.no_units%> 12
+                                            </td>
+                                            <td>
+                                                Mr kenyatta
+
+                                            </td>
+                                            <td>
+                                                More
+                                            </td>
+                                            <%end%>
 
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th> Name</th>
-                                            <th>Property Type</th>
-                                            <th>No of Units </th>
-                                            <th>LandLords</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
+
                                 </table>
                             </div>
                         </div>

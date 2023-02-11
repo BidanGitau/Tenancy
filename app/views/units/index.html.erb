@@ -33,40 +33,47 @@
                             <%=link_to '<i class="bi bi-plus"></i></span>Create Unit' .html_safe,new_tenant_path,class:" "%>
 
                         </div>
+                      
                         <div class=" card-body">
                                 <div class="table-responsive">
-                                    <table id="example"
-                                        class="table  table-dark table-hover table-striped-columns table-striped data-table"
-                                        style="width: 100%">
+                                    <table id="example" class="table  data-table" style="width: 100%">
                                         <thead>
-                                            <tr>
+                                            <tr
+                                                style="font-weight:bold ; text-shadow: 1px 1px #3359df; color: #3359df; font-size: larger; color: #3359df;">
                                                 <th>Unit Name</th>
-                                                <th>Unit Details</th>
+                                                <th>Bedrooms</th>
+                                                <th>Bathrooms</th>
                                                 <th>Rent</th>
                                                 <th>Status</th>
 
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Block 3</td>
-                                                <td>3 Bathrooms,3 beddrooms</td>
-                                                <td>50,000</td>
+                                        <tbody style=" text-transform: uppercase; text-shadow: 1px  2px 2px #7cb8e0">
 
-                                                <td>Vacant</td>
 
-                                            </tr>
+                                            <% @units.each do |unit|%>
+                                                <tr>
+                                                    <td>
+                                                        <%=unit.name%>
+                                                    </td>
+                                                    <td>
+                                                        <%=unit.bedrooms%>
+                                                    </td>
+                                                    <td>
+                                                        <%=unit.bathrooms%>
+                                                    </td>
+                                                    <td>
+                                                        <%=unit.rent%>
 
+                                                    </td>
+                                                    <td>
+                                                        vacant
+                                                    </td>
+                                                </tr>
+                                                <%end%>
 
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Unit Name</th>
-                                                <th>Unit Details</th>
-                                                <th>Rent</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </tfoot>
+
                                     </table>
                                 </div>
                         </div>

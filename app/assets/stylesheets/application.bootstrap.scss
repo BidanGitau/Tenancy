@@ -59,4 +59,13 @@ object-fit: contain;
 
 
 
-
+ tbody >tr {
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  
+  tbody > tr:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+  }
+  
