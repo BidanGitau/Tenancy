@@ -8,7 +8,8 @@ class PagesController < ApplicationController
            end
     end
     def index
-       
+        @units=Unit.all
+        @properties=Property.all
     end
     
 end

@@ -50,9 +50,7 @@
                                         </tr>
                                     </thead>
                                     <tbody style=" text-transform: uppercase; text-shadow: 1px  2px 2px #7cb8e0">
-                                        <div class="chart-container" width="400px" height="400px">
-                                            <%= line_chart @properties.group_by(:created_at).count %>
-                                        </div>
+
 
 
                                         <% @properties.each do |prop|%>

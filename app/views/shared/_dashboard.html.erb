@@ -57,9 +57,13 @@
                         <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
                         Units Status
                     </div>
-                    <div class="card-body">
-                        <canvas class="chart" width="400" height="200"></canvas>
+
+
+
+                    <div class="  card-body chart-container" width="400px" height="400px">
+                        <%= column_chart @units.group(:name).count %>
                     </div>
+
                 </div>
             </div>
             <div class="col-md-6 mb-3">
@@ -68,8 +72,10 @@
                         <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
                         Property Revenue collection
                     </div>
-                    <div class="card-body">
-                        <canvas class="chart" width="400" height="200"></canvas>
+
+                    <div class="  card-body chart-container" width="400px" height="400px">
+                        <%= line_chart @units.group(:name).count %>
+
                     </div>
                 </div>
             </div>
