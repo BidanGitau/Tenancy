@@ -17,6 +17,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="col-md-6 col-sm-12 col-xs-12  p-5 ">
                 <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">Invite New Tenant
                 </h6>
@@ -25,9 +27,10 @@
                 </div>
                 <% if @tenant.errors.any? %>
                     <div id="error_explanation">
-                        <h2>
-                            <%= pluralize(@tenant.errors.count, "error" ) %> prohibited this tenant from being saved:
-                        </h2>
+                        <h6>
+                            <%= pluralize(@tenant.errors.count, "error" ) %> prohibited this tenant from being
+                                saved:
+                        </h6>
 
                         <ul>
                             <% @tenant.errors.full_messages.each do |message| %>
@@ -38,7 +41,22 @@
                         </ul>
                     </div>
                     <% end %>
+
+
+
                         <%=form_with model: @tenant,data: {turbo: false} do |f|%>
+                            <div class="form-group">
+                                <%= f.label :property,class:"form-label" %>
+                                    <%= f.collection_select :property_id, Property.all, :id, :name %>
+
+                            </div>
+
+                            <div class="form-group">
+                                <%= f.label :unit,class:"form-label" %>
+
+                                    <%= f.grouped_collection_select :unit_id, Property.all, :units, :name, :id, :name %>
+
+                            </div>
                             <div class="form-group  mb-1">
                                 <%= f.label :firstname %>
                                     <%= f.text_field :firstname, class: 'form-control active' %>
@@ -54,7 +72,9 @@
                             <div class="form-group ">
                                 <%= f.label :email ,class:"form-label" %>
                                     <%= f.email_field :email, class: 'form-control active' %>
-                                        <div id="emailHelp" class="form-text">We'll never share your email with anyone
+                                        <div id="emailHelp" class="form-text">We'll never share your
+                                            email with
+                                            anyone
                                             else.
                                         </div>
                             </div>

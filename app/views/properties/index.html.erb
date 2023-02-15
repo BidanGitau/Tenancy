@@ -33,7 +33,7 @@
                             </form>
 
                             <%=link_to '<i class="bi bi-plus"></i></span>Create Property'
-                                .html_safe,new_tenant_path,class:""%>
+                                .html_safe,new_property_path,class:""%>
 
                         </div>
                         <div class="card-body">
@@ -52,26 +52,30 @@
                                     <tbody style=" text-transform: uppercase; text-shadow: 1px  2px 2px #7cb8e0">
 
 
-
                                         <% @properties.each do |prop|%>
+                                            <tr>
+                                                <td>
+                                                    <%=prop.name%>
+                                                </td>
+                                                <td>
+                                                    <%=prop.category%>
+                                                </td>
+                                                <td>
+                                                    <%=prop.property_type%> 12
+                                                </td>
+                                                <td>
+                                                    Mr kenyatta
 
-                                            <td>
-                                                <%=prop.name%>
-                                            </td>
-                                            <td>
-                                                <%=prop.property_type%>
-                                            </td>
-                                            <td>
-                                                <%=prop.no_units%> 12
-                                            </td>
-                                            <td>
-                                                Mr kenyatta
-
-                                            </td>
-                                            <td>
-                                                More
-                                            </td>
+                                                </td>
+                                                <td>
+                                                    <%=link_to '<i class="bi bi-three-dots-vertical"></i>' .html_safe ,
+                                                        property_path(prop)%>
+                                                </td>
+                                            </tr>
                                             <%end%>
+
+
+
 
                                     </tbody>
 

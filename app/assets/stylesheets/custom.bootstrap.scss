@@ -15,7 +15,7 @@
   .sidebar-link[aria-expanded="true"] .right-icon {
     transform: rotate(180deg);
   }
-  @media (min-width: 992px) {
+@media (min-width: 992px) {
     body {
       overflow: auto !important;
     }

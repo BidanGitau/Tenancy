@@ -36,8 +36,7 @@
                         </div>
                         <div class=" card-body">
                                 <div class="table-responsive">
-                                    <table id="example" class="table  table-dark table-hover  table-striped data-table"
-                                        style="width: 100%">
+                                    <table id="example" class="table  data-table" style="width: 100%">
                                         <thead>
                                             <tr>
                                                 <th>Tenant Name</th>
@@ -48,6 +47,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+
                                             <%@tenants.each do |tenant|%>
                                                 <tr>
                                                     <td>
@@ -70,14 +70,8 @@
 
 
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Tenant Name</th>
-                                                <th>Unit Name</th>
-                                                <th>Rent </th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </tfoot>
+
+
                                     </table>
                                 </div>
                         </div>

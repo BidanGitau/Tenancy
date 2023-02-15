@@ -20,7 +20,7 @@
             <div class="col-md-6 col-sm-12 col-xs-12  p-5 ">
                 <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">New Property
                 </h6>
-                <%=form_with model: @tenants,data: {turbo: false} do |f|%>
+                <%=form_with model: @property,data: {turbo: false} do |f|%>
                     <div class="form-group  mb-1">
                         <%= f.label :name %>
                             <%= f.text_field :name, class: 'form-control active' %>
@@ -37,13 +37,10 @@
                         <%=f.label :category,class:"form-label"%>
                             <%=f.text_field :category,class:"form-control"%>
                     </div>
-                    <div class=" form-group mb-3">
-                        <%=f.label :units,class:"form-label"%>
-                            <%=f.text_field :units,class:"form-control"%>
-                    </div>
+
 
                     <div class="b_submit d-flex justify-content-center align-content-center">
-                        <%= f.submit 'Create New' .html_safe , class: " mt-2
+                        <%= f.submit 'New Rentals' .html_safe , class: " mt-2
                             me-3 btn
                             btn-primary" %>
                     </div>

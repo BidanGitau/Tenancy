@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_11_105939) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_15_141459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,7 +44,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_105939) do
     t.integer "phone"
     t.string "password_digest"
     t.integer "account_id"
+    t.date "date_of_lease"
+    t.integer "rent_amount"
+    t.integer "deposit"
+    t.date "rent_due"
+    t.string "lease_term"
+    t.date "end_date_of_lease"
+    t.integer "unit_id"
+    t.bigint "property_id", null: false
     t.index ["account_id"], name: "index_tenants_on_account_id"
+    t.index ["property_id"], name: "index_tenants_on_property_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -96,5 +105,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_105939) do
 
   add_foreign_key "accounts", "users"
   add_foreign_key "properties", "accounts"
+  add_foreign_key "tenants", "properties"
   add_foreign_key "units", "properties"
 end

@@ -1,2 +1,60 @@
-<h1>Properties#show</h1>
-<p>Find me in app/views/properties/show.html.erb</p>
+<div class="container-fluid  aligns-items-center justify-content-center">
+    <div class="row ">
+
+        <div class="col-md-12 mb-3  d-flex aligns-items-center justify-content-start  ">
+            <div class="   fw-bolder p-3 text-uppercase ">
+                <%=link_to '<i class="bi-arrow-left-circle text-black  fa-2x  "></i>' .html_safe , dashboard_url%>
+            </div>
+            <div>
+                <h4 class=" text-center  mt-4 " style="color: #3359df;">
+                    Back to Dashboard
+                </h4>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-12 fw-bolder ms-5 mb-3 d-flex aligns-items-center justify-content-start"
+            style="color: #3359df;">
+            Tenants in <%= @property.name %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="row">
+                    <% @tenants.each do |tenant| %>
+                        <div class="col-3">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <%= tenant.firstname %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <%= tenant.lastname %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <%= tenant.email %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <%= tenant.phone %>
+                                </div>
+                            </div>
+                        </div>
+                        <%end%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

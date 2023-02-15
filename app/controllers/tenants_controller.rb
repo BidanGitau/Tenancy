@@ -2,46 +2,33 @@ class TenantsController < ApplicationController
   
   def index
     @tenants=Tenant.all
+    @properties = Property.all
   end
 
   def new
     @tenant = Tenant.new()
-  end
-  # def create
-  #   @tenant = Tenant.new(tenant_params)
-
-  #   if @tenant.save
-  #     redirect_to @tenant, notice: 'Tenant was successfully created.'
-  #   else
-  #     render :new
-  #   end
-  # end
- def create
-
+    @properties = Property.all
   
+    #  @units = Unit.where(property_id: params[:property_id])
+  end
+ 
+ def create
   @tenant = Tenant.new(tenant_params)
-  if @tenant.save
-    
-    flash[:success] = "Object successfully created"
+  @property = Property.find(params[:tenant][:property_id])
+  @unit = @property.units.find(params[:tenant][:unit_id])
+  @unit.tenant = @tenant # assign the tenant to the unit
+  if @tenant.save && @unit.save
     redirect_to @tenant
   else
-    flash[:error] = "Something went wrong"
     render 'new'
   end
- end
- 
- 
-  def show
-  end
-
-  def update
-  end
+end
+  
 
   private
-
+ 
   def tenant_params
-    params.require(:tenant).permit(:firstname, :lastname, :email, :phone, :password, :password_confirmation)
+    params.require(:tenant).permit(:firstname, :lastname, :email, :phone, :password, :password_confirmation, :property_id, :unit_id)
   end
-  
   
 end

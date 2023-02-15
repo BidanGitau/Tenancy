@@ -1,0 +1,28 @@
+table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Unit Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @tenants.each do |tenant| %>
+            <tr>
+                <td>
+                    <%= tenant.firstname %>
+                </td>
+                <td>
+                    <%= tenant.phone %>
+                </td>
+                <td>
+                    <%= tenant.email %>
+                </td>
+                <td>
+                    <%= tenant.unit.name %>
+                </td>
+            </tr>
+            <% end %>
+    </tbody>
+</table>

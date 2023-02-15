@@ -19,4 +19,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:signup,keys:[:firstname,:lastname])
     devise_parameter_sanitizer.permit(:user_update,keys:[:firstname,:lastname])
   end
+  
 end
