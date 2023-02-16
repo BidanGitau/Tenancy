@@ -82,14 +82,12 @@
                         </span>
                     </a>
                     <div class="collapse" id="layouts">
-                        <ul class="navbar-nav ps-3">
-                            <li>
-                                <a href="#" class="nav-link px-3 text-white">
-                                    <span class="me-2"><i class="bi bi-house-add"></i></span>
-                                    <span>Tamirat court</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="form-group">
+
+                            <%= select_tag :property_id, options_for_select(@properties.map { |property| [property.name,
+                                property.id] }), prompt: "Select a property" , class: "form-control" ,
+                                id: "property-select" %>
+                        </div>
                     </div>
                 </li>
 
@@ -129,3 +127,18 @@
 <% if dashboard_url %>
     <%=render "shared/dashboard" %>
         <%end%>
+
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const propertySelect = document.querySelector("#property-selected");
+
+                    propertySelect.addEventListener("change", function () {
+                        const selectedPropertyId = this.value;
+                        if (selectedPropertyId) {
+                            window.location.href = "/properties/" + selectedPropertyId;
+                        }
+                    });
+                });
+            </script>

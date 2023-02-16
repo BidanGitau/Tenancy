@@ -1,6 +1,7 @@
 class UnitsController < ApplicationController
   def index
     @units=Unit.all
+    @properties = Property.all
   end
 
   def new
@@ -11,6 +12,9 @@ class UnitsController < ApplicationController
   def create
     @unit = Unit.new(unit_params)
     if @unit.save
+      property = @unit.property
+      rentals=property.no_units
+      property.update(no_units:rentals.to_i + 2)
       redirect_to properties_path
     else
       render 'new'
