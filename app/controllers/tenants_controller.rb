@@ -8,7 +8,7 @@ class TenantsController < ApplicationController
   def new
     @tenant = Tenant.new()
     @properties = Property.all
-  
+    @units=Unit.all
     #  @units = Unit.where(property_id: params[:property_id])
   end
  
@@ -18,6 +18,7 @@ class TenantsController < ApplicationController
   @unit = @property.units.find(params[:tenant][:unit_id])
   @unit.tenant = @tenant # assign the tenant to the unit
   if @tenant.save && @unit.save
+    @unit.update(tenant_id: @tenant.id )
     redirect_to @tenant
   else
     render 'new'

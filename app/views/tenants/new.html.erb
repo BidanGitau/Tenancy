@@ -47,14 +47,17 @@
                         <%=form_with model: @tenant,data: {turbo: false} do |f|%>
                             <div class="form-group">
                                 <%= f.label :property,class:"form-label" %>
-                                    <%= f.collection_select :property_id, Property.all, :id, :name %>
+
+                                    <%= f.collection_select :property_id, @properties, :id, :name, {}, {
+                                        class: "form-control" ,id: 'property-select' } %>
 
                             </div>
 
                             <div class="form-group">
                                 <%= f.label :unit,class:"form-label" %>
 
-                                    <%= f.grouped_collection_select :unit_id, Property.all, :units, :name, :id, :name %>
+                                    <%= f.collection_select :unit_id, @units, :id, :name, {}, { class: "form-control" ,
+                                        id: 'unit-select' , disabled: true } %>
 
                             </div>
                             <div class="form-group  mb-1">
@@ -96,3 +99,33 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const propertySelect = document.querySelector("#property-select");
+        const unitSelect = document.querySelector("#unit-select");
+
+        propertySelect.addEventListener("change", function () {
+            const selectedPropertyId = this.value;
+            const units = <%= raw @units.to_json %>;
+            const filteredUnits = units.filter(function (unit) {
+                return unit.property_id == selectedPropertyId && (unit.tenant_id == null);
+            });
+            console.log(filteredUnits)
+            unitSelect.innerHTML = "";
+            if (filteredUnits.length > 0) {
+                filteredUnits.forEach(function (unit) {
+                    const option = document.createElement("option");
+                    option.value = unit.id;
+                    option.text = unit.name;
+                    unitSelect.appendChild(option);
+                });
+
+                unitSelect.disabled = false;
+            } else {
+                unitSelect.disabled = true;
+                unitSelect.innerHTML = "<option value=''>No available units</option>";
+            }
+        });
+    });
+
+</script>
