@@ -1,65 +1,35 @@
 <div class="container signup ">
-    <div class="vh-100 align-items-center justify-content-center p-5">
+    <div class="vh-100 align-items-center justify-content-center ">
         <p class="  align-items-center justify-content-center text-start fw-bolder p-3 text-uppercase ">
             <%=link_to '<i class="bi-arrow-left-circle text-black  text-center fa-2x  "></i>' .html_safe ,
                 dashboard_url%>
         </p>
-        <div class="row d-flex align-items-center justify-content-center shadow ">
-            <div class="col-5 mt-4">
-                <div class="card mb-3 border-0">
+        <%=form_with model: @tenant,data: {turbo: false} do |f|%>
+            <div class="row d-flex align-items-center justify-content-center shadow ">
 
-                    <div class="card-body">
-                        <h5 class="card-title" style="color:  rgb(240, 109, 33)">Get to lease a Unit</h5>
-                        <p class="card-text">Create your rental lease using our online lease builder and templates
-                            drafted with
-                            local law firms, or upload your own lease and e-sign it with your renters</p>
-
+                <div class="col-md-6 col-sm-12 col-xs-12   ">
+                    <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">Invite New Tenant
+                    </h6>
+                    <div class="d-flex ms-auto fw-bolder text-black">
+                        Personal Details
                     </div>
-                </div>
-            </div>
+                    <% if @tenant.errors.any? %>
+                        <div id="error_explanation">
+                            <h6>
+                                <%= pluralize(@tenant.errors.count, "error" ) %> prohibited this tenant from being
+                                    saved:
+                            </h6>
+                            <ul>
+                                <% @tenant.errors.full_messages.each do |message| %>
+                                    <li>
+                                        <%= message %>
+                                    </li>
+                                    <% end %>
+                            </ul>
+                        </div>
+                        <% end %>
 
 
-            <div class="col-md-6 col-sm-12 col-xs-12  p-5 ">
-                <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">Invite New Tenant
-                </h6>
-                <div class="d-flex ms-auto my-3 my-lg-0 fw-bolder text-black">
-                    <%=current_user.email%>
-                </div>
-                <% if @tenant.errors.any? %>
-                    <div id="error_explanation">
-                        <h6>
-                            <%= pluralize(@tenant.errors.count, "error" ) %> prohibited this tenant from being
-                                saved:
-                        </h6>
-
-                        <ul>
-                            <% @tenant.errors.full_messages.each do |message| %>
-                                <li>
-                                    <%= message %>
-                                </li>
-                                <% end %>
-                        </ul>
-                    </div>
-                    <% end %>
-
-
-
-                        <%=form_with model: @tenant,data: {turbo: false} do |f|%>
-                            <div class="form-group">
-                                <%= f.label :property,class:"form-label" %>
-
-                                    <%= f.collection_select :property_id, @properties, :id, :name, {}, {
-                                        class: "form-control" ,id: 'property-select' } %>
-
-                            </div>
-
-                            <div class="form-group">
-                                <%= f.label :unit,class:"form-label" %>
-
-                                    <%= f.collection_select :unit_id, @units, :id, :name, {}, { class: "form-control" ,
-                                        id: 'unit-select' , disabled: true } %>
-
-                            </div>
                             <div class="form-group  mb-1">
                                 <%= f.label :firstname %>
                                     <%= f.text_field :firstname, class: 'form-control active' %>
@@ -70,7 +40,7 @@
                             </div>
                             <div class=" form-group mb-3">
                                 <%=f.label :phone,class:"form-label"%>
-                                    <%=f.text_field :phone,class:"form-control"%>
+                                    <%=f.number_field :phone,class:"form-control"%>
                             </div>
                             <div class="form-group ">
                                 <%= f.label :email ,class:"form-label" %>
@@ -89,14 +59,68 @@
                                 <%=f.label :password_confirmation,class:"form-label"%>
                                     <%=f.password_field :password_confirmation,class:"form-control"%>
                             </div>
+
+
+                </div>
+                <div class="col-md-5 col-sm-12 col-xs-12  p-5 ">
+                    <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">Unit Details
+                    </h6>
+                    <div class="d-flex ms-auto my-3 my-lg-0 fw-bolder text-black">
+                        <%=current_user.email%>
+                    </div>
+                    <% if @tenant.errors.any? %>
+                        <div id="error_explanation">
+                            <h6>
+                                <%= pluralize(@tenant.errors.count, "error" ) %> prohibited this tenant from being
+                                    saved:
+                            </h6>
+                            <ul>
+                                <% @tenant.errors.full_messages.each do |message| %>
+                                    <li>
+                                        <%= message %>
+                                    </li>
+                                    <% end %>
+                            </ul>
+                        </div>
+                        <% end %>
+
+                            <div class="form-group">
+                                <%= f.label :property,class:"form-label" %>
+                                    <%= f.collection_select :property_id, @properties, :id, :name, {}, {
+                                        class: "form-control" ,id: 'property-select' } %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.label :unit,class:"form-label" %>
+                                    <%= f.collection_select :unit_id, @units, :id, :name, {}, { class: "form-control" ,
+                                        id: 'unit-select' , disabled: true } %>
+                            </div>
+                            <div class="form-group  mb-1">
+                                <%= f.label :date_of_lease %>
+                                    <%= f.date_field :date_of_lease, class: 'form-control active' %>
+                            </div>
+                            <div class=" form-group mb-3">
+                                <%=f.label :rent_amount,class:"form-label"%>
+                                    <%=f.number_field :rent_amount,class:"form-control"%>
+                            </div>
+                            <div class=" form-group mb-3">
+                                <%=f.label :deposit,class:"form-label"%>
+                                    <%=f.number_field :deposit,class:"form-control"%>
+                            </div>
+
+                            <div class=" form-group mb-3">
+                                <%=f.label :rent_due,class:"form-label"%>
+                                    <%=f.date_field :rent_due,class:"form-control"%>
+                            </div>
+
                             <div class="b_submit d-flex justify-content-center align-content-center">
                                 <%= f.submit "invite Tenant" , class: " mt-2
-                            me-3 btn
+                             btn
                             btn-primary" %>
                             </div>
-                            <%end%>
+
+                </div>
+                <%end%>
             </div>
-        </div>
     </div>
 </div>
 <script>
@@ -127,5 +151,4 @@
             }
         });
     });
-
 </script>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_16_075122) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_16_180218) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_075122) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.decimal "amount"
+    t.date "date_paid"
+    t.string "payment_method"
+    t.text "notes"
+    t.bigint "tenant_id", null: false
+    t.bigint "unit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tenant_id"], name: "index_payments_on_tenant_id"
+    t.index ["unit_id"], name: "index_payments_on_unit_id"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -105,6 +118,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_075122) do
   end
 
   add_foreign_key "accounts", "users"
+  add_foreign_key "payments", "tenants"
+  add_foreign_key "payments", "units"
   add_foreign_key "properties", "accounts"
   add_foreign_key "tenants", "properties"
   add_foreign_key "units", "properties"

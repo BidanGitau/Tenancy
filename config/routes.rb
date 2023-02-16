@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :units
     root "pages#home"
     get "dashboard", to: "pages#index" ,as: 'dashboard'
-  
+    resources :units do
+      resources :payments
+    end
     resources :tickets
   end
   

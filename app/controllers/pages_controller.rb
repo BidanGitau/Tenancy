@@ -10,6 +10,9 @@ class PagesController < ApplicationController
     def index
         @account = current_user.account
         @units = @account.properties.joins(:units).distinct.select("units.*")
+        @units_by_property = Property.joins(:units).group(:name).count
+        # @tenants_by_property = Property.joins(units: :tenants).group(:name).count('tenants.id')
+
     @properties = @account.properties
     end
     

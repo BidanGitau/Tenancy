@@ -1,135 +1,124 @@
-<main class=" pt-3 position-relative " ">
+<main class=" pt-3 position-relative" style="margin-top: 3rem;">
     <div class=" container-fluid">
-    <div class="row">
-        <div class="col-md-12 text-white">
-            <h4>Dashboard</h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 mb-3">
-            <div class="card text-black text-center fw-bold h-100"
-                style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
-                <div class="card-body py-5">
-                    <%=link_to '<i class="bi bi-plus"></i></span>Invite Tenants' .html_safe,new_tenant_path,class:""%>
-                </div>
-
+        <div class="row">
+            <div class="col-md-12 text-black">
+                <h4>Dashboard</h4>
             </div>
         </div>
-        <div class="col-md-3 mb-3">
-            <div class="card  text-center fw-bold text-dark h-100"
-                style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
-                <div class="card-body py-5"> <span class="me-2">
-                        <%=link_to '<i class="bi bi-plus"></i></span>Create Unit' .html_safe,new_unit_path,class:""%>
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <div class="card text-black text-center fw-bold h-100"
+                    style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
+                    <div class="card-body py-5">
+                        <%=link_to '<i class="bi bi-plus"></i></span>Invite Tenants'
+                            .html_safe,new_tenant_path,class:""%>
+                    </div>
 
-                    </span>
                 </div>
-
             </div>
-        </div>
-        <div class="col-md-3 mb-3">
-            <div class="card  text-center fw-bold text-black h-100"
-                style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
-                <div class="card-body py-5"> <span class="me-2">
+            <div class="col-md-3 mb-3">
+                <div class="card  text-center fw-bold text-dark h-100"
+                    style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
+                    <div class="card-body py-5"> <span class="me-2">
+                            <%=link_to '<i class="bi bi-plus"></i></span>Create Unit'
+                                .html_safe,new_unit_path,class:""%>
 
-                        <%=link_to '<i class="bi bi-plus"></i></span>Create Property'
-                            .html_safe,new_property_path,class:""%>
+                        </span>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
-        <div class="col-md-3 mb-3">
-            <div class="card text-center fw-bold text-black h-100"
-                style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
-                <div class="card-body py-5">
+            <div class="col-md-3 mb-3">
+                <div class="card  text-center fw-bold text-black h-100"
+                    style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
+                    <div class="card-body py-5"> <span class="me-2">
 
-                    <%=link_to '<i class="bi bi-plus"></i></span>Create Lease' .html_safe,"#",class:""%>
+                            <%=link_to '<i class="bi bi-plus"></i></span>Create Property'
+                                .html_safe,new_property_path,class:""%>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 mb-3">
-            <div class="card h-100">
-                <div class="card-header">
-                    <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                    Units Status
-                </div>
+            <div class="col-md-3 mb-3">
+                <div class="card text-center fw-bold text-black h-100"
+                    style="border:2px dashed rgb(229, 110, 44);background:rgb(255, 247, 234);">
+                    <div class="card-body py-5">
 
-
-
-                <div class="  card-body chart-container" width="400px" height="400px">
-                    <%= column_chart @units.group(:name).count %>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-6 mb-3">
-            <div class="card h-100">
-                <div class="card-header">
-                    <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                    Property Revenue collection
-                </div>
-
-                <div class="  card-body chart-container" width="400px" height="400px">
-                    <%= line_chart @units.group(:name).count %>
+                        <%=link_to '<i class="bi bi-plus"></i></span>Create Lease' .html_safe,"#",class:""%>
+                    </div>
 
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 mb-3">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-content-center text-center">
-                    <div> <span><i class="bi bi-table me-2"></i></span> Property House Occupants</div>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Tamirat Court ...tenants"
-                            aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+                        Units Status
+                    </div>
+
+
+
+                    <div class="  card-body chart-container" width="200px" height="200px">
+                        <%= pie_chart @units.group(:status).count %>
+                    </div>
+
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="example" class="table table-dark table-hover table-striped data-table"
-                            style="width: 100%">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                </tr>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+                        Units per Property
+                    </div>
+
+                    <div class="  card-body chart-container" width="200px" height="200px">
+                        <%= column_chart @units_by_property, xtitle: 'Property' , ytitle: 'Units' , stacked: true,
+                            library: { title: { text: 'Units by Property' } } %>
 
 
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>House No</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
-                            </tfoot>
-                        </table>
+
+
                     </div>
                 </div>
             </div>
+            <div class="col-md-3 mb-3">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+                        Units Status
+                    </div>
+
+
+
+                    <div class="  card-body chart-container" width="200px" height="200px">
+                        <%= pie_chart @units.group(:status).count %>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+                        Units per Property
+                    </div>
+
+                    <div class="  card-body chart-container" width="200px" height="200px">
+                        <%= column_chart @units_by_property, xtitle: 'Property' , ytitle: 'Units' , stacked: true,
+                            library: { title: { text: 'Units by Property' } } %>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
-    </div>
+
     </div>
 </main>
