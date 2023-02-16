@@ -1,2 +1,8 @@
-<h1>Units#show</h1>
-<p>Find me in app/views/units/show.html.erb</p>
+<h1>Units matching search query: <%= params[:property_name] %>
+</h1>
+
+<% @units.each do |unit| %>
+    <p>
+        <%= unit.name %> in <%= unit.property.name %>
+    </p>
+    <% end %>

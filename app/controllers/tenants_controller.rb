@@ -18,7 +18,7 @@ class TenantsController < ApplicationController
   @unit = @property.units.find(params[:tenant][:unit_id])
   @unit.tenant = @tenant # assign the tenant to the unit
   if @tenant.save && @unit.save
-    @unit.update(tenant_id: @tenant.id )
+    @unit.update(tenant_id: @tenant.id,status: 'occupied' )
     redirect_to @tenant
   else
     render 'new'

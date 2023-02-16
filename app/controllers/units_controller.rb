@@ -1,8 +1,15 @@
 class UnitsController < ApplicationController
+
   def index
-    @units=Unit.all
-    @properties = Property.all
+    @account = current_user.account
+    @units = @account.properties.joins(:units).distinct.select("units.*")
+    @properties = @account.properties
   end
+
+  # def index
+  #       @properties = Property.all
+  #       @units=Unit.all
+  # end
 
   def new
     @unit = Unit.new
@@ -21,6 +28,11 @@ class UnitsController < ApplicationController
     end
   end
   
+  def search
+    property_name = params[:property_name]
+    @units = Unit.joins(:property).where('properties.name LIKE ?', "%#{property_name}%")
+  end
+
   private
   
   def unit_params

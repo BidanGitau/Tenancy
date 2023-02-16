@@ -5,7 +5,7 @@ import * as bootstrap from "bootstrap";
 import "chartkick/chart.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  const propertySelect = document.querySelector("#property-select");
+  const propertySelect = document.querySelector("#property-selected");
 
   propertySelect.addEventListener("change", function () {
     const selectedPropertyId = this.value;

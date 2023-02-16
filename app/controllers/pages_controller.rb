@@ -8,8 +8,9 @@ class PagesController < ApplicationController
            end
     end
     def index
-        @units=Unit.all
-        @properties=Property.all
+        @account = current_user.account
+        @units = @account.properties.joins(:units).distinct.select("units.*")
+    @properties = @account.properties
     end
     
 end
