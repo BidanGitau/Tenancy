@@ -13,4 +13,11 @@ class Tenant < ApplicationRecord
 #     rent_total - payments_total - rent_due_total
 #   end
 
+def full_name
+    "#{firstname} #{lastname}"
+  end
+  def default_rent
+    unit.rent
+  end
+
 end

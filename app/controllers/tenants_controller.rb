@@ -25,12 +25,7 @@ class TenantsController < ApplicationController
   end
 end
   
-def search
-  @properties = Property.all
-  @selected_property = params[:property_id]
-  @tenants = Tenant.joins(unit: :property).where(properties: { id: @selected_property }).distinct
-end
-
+ 
   private
  
   def tenant_params

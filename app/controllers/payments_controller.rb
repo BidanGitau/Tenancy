@@ -7,27 +7,25 @@ class PaymentsController < ApplicationController
     end
     
     def new
-      @payment_types = Payment.payment_types
-      @payment = Payment.new
-     
       @unit = Unit.find(params[:unit_id])
+      @payment_types=Payment.payment_types
+      @payment = @unit.payments.new
       @tenant = @unit.tenant
-      # @payments = Payment.where(unit_id: params[:unit_id])
-      # @last_payment = @unit.payments.where(tenant_id: @tenant.id).order(date: :desc).first
-      # @last_payment_date = @last_payment.date if @last_payment.present?
-
+  
+    
     end
-   
-   
+  
     def create
       
       
       
-      
-      @payment = Payment.new(payment_params)
+      @unit = Unit.find(params[:unit_id])
+      @tenant =  @unit.id
+      @payment = @unit.payments.new(payment_params)
+     
+  
       if @payment.save
-      @payment.update(date_paid: Date.today)
-        redirect_to @payment.unit, notice: "Payment was successfully created."
+        redirect_to unit_path(@unit), notice: 'Payment was successfully created.'
       else
         render :new
       end
@@ -55,7 +53,7 @@ class PaymentsController < ApplicationController
     private
   
     def payment_params
-      params.require(:payment).permit(:amount, :payment_method,:notes, :unit_id, :tenant_id)
+      params.require(:payment).permit(:amount, :date_paid,:payment_method,:notes, :unit_id, :tenant_id)
     end
     def set_unit
       @units = Unit.find(params[:unit_id])

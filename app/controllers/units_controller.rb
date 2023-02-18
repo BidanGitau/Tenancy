@@ -11,6 +11,7 @@ class UnitsController < ApplicationController
 
 
     @properties = @account.properties
+    @payment=Payment.all
   end
 
   # def index
