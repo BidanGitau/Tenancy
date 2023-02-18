@@ -1,8 +1,11 @@
 <h1>Units matching search query: <%= params[:property_name] %>
 </h1>
 
-<% @units.each do |unit| %>
-    <p>
-        <%= unit.name %> in <%= unit.property.name %>
-    </p>
-    <% end %>
+
+<p>
+    <%= @units.name %> in <%= @units.property.name %>
+</p>
+
+<p class="  align-items-center justify-content-center text-start fw-bolder  text-uppercase ">
+    <%=link_to '<i class="bi-arrow-left-circle text-black  text-center fa-2x  "></i>' .html_safe , dashboard_url%>
+</p>

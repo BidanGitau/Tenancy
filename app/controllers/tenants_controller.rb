@@ -25,11 +25,16 @@ class TenantsController < ApplicationController
   end
 end
   
+def search
+  @properties = Property.all
+  @selected_property = params[:property_id]
+  @tenants = Tenant.joins(unit: :property).where(properties: { id: @selected_property }).distinct
+end
 
   private
  
   def tenant_params
-    params.require(:tenant).permit(:firstname, :lastname, :email, :phone, :password, :password_confirmation, :property_id, :unit_id)
+    params.require(:tenant).permit(:firstname, :lastname, :email,:deposit,:date_of_lease,:rent_amount,:end_date_of_lease, :phone, :password, :password_confirmation, :property_id, :unit_id)
   end
   
 end

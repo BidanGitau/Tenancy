@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1>New Payment</h1>
+            <% if @payment.errors.any? %>
+                <div id="error_explanation">
+                    <h2>
+                        <%= pluralize(@payment.errors.count, "error" ) %> prohibited this payment from being saved:
+                    </h2>
+
+                    <ul>
+                        <% @payment.errors.full_messages.each do |message| %>
+                            <li>
+                                <%= message %>
+                            </li>
+                            <% end %>
+                    </ul>
+                </div>
+                <% end %>
+                    <%= form_with(model: [@unit, @payment], url: unit_payments_path(@units)) do |f| %>
+                        <div class="form-control m-3">
+                            <%= f.label :amount %>
+                                <%= f.number_field :amount, class: 'form-control' %>
+                        </div>
+                        <%=@tenant.firstname%>
+                            <div class="form-control m-3">
+                                <%= f.label :date_paid ,class:"form-label" %>
+                                    <%= f.date_field :date_paid, class: 'form-control' %>
+                            </div>
+
+                            <div class="form-control m-3">
+                                <%= f.label :tenant_id, "Tenant" ,class:"form-label" %>
+                                    <%= f.collection_select(:tenant_id, Tenant.all, :id, :firstname,
+                                        {prompt: "Select a tenant" }, {class: 'form-control' }) %>
+                            </div>
+                            <%= f.fields_for :tenant do |tenant_form| %>
+                                <div class="field">
+                                    <%= tenant_form.label :lease_start %>
+                                        <%= tenant_form.date_select :lease_start ,{},{:disabled=> true} %>
+                                </div>
+                                <% end %>
+                                    <div class="form-control m-3">
+                                        <%= f.label :unit_id, "Unit" ,class:"form-label" %>
+                                            <%= f.collection_select(:unit_id, Unit.all, :id, :name,
+                                                {prompt: "Select a unit" }, {class: 'form-control' }) %>
+                                    </div>
+
+                                    <div class="form-control m-3">
+
+                                        <%= f.collection_select(:payment_method, @payment_types, :to_s, :to_s,
+                                            {prompt: "Select a payment type" }, {class: 'form-control' }) %>
+
+                                    </div>
+                                    <div class="form-control m-3 ">
+                                        <%= f.label :note,class:"form-label" %>
+                                            <%= f.text_area :note, class: 'form-control' %>
+                                    </div>
+
+                                    <div class="form-control">
+                                        <%= f.submit "Make Payment" , class: 'btn btn-primary' %>
+                                    </div>
+                                    <% end %>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const lastPaymentDate = new Date("<%= @last_payment_date %>");
+        const nextPaymentDate = new Date(lastPaymentDate.getFullYear(), lastPaymentDate.getMonth() + 1, lastPaymentDate.getDate());
+        const paymentDateInput = document.querySelector("#payment_date");
+        paymentDateInput.valueAsDate = nextPaymentDate;
+    });
+</script>

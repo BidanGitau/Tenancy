@@ -33,55 +33,67 @@
                             <%=link_to '<i class="bi bi-plus"></i></span>Create Unit' .html_safe,new_unit_path,class:" "%>
 
                         </div>
-                        <div class=" chart-container" width="400px" height="400px">
-                                <%= line_chart @units.group(:name).count %>
-                        </div>
+                       
                         <div class=" card-body">
-                            <div class="table-responsive">
-                                <table id="example" class="table  data-table" style="width: 100%">
-                                    <thead>
-                                        <tr
-                                            style="font-weight:bold ; text-shadow: 1px 1px #3359df; color: #3359df; font-size: larger; color: #3359df;">
-                                            <th>Unit Name</th>
-                                            <th>Bedrooms</th>
-                                            <th>Bathrooms</th>
-                                            <th>Rent</th>
-                                            <th>Status</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody style=" text-transform: uppercase; text-shadow: 1px  2px 2px #7cb8e0">
-
-
-                                        <% @units.each do |unit|%>
-                                            <tr>
-                                                <td>
-                                                    <%=unit.name%>
-                                                </td>
-                                                <td>
-                                                    <%=unit.bedrooms%>
-                                                </td>
-                                                <td>
-                                                    <%=unit.bathrooms%>
-                                                </td>
-                                                <td>
-                                                    <%=unit.rent%>
-
-                                                </td>
-                                                <td>
-
-                                                    <%=unit.status%>
-                                                </td>
+                                <div class="table-responsive">
+                                    <table id="example" class="table  data-table" style="width: 100%">
+                                        <thead>
+                                            <tr
+                                                style="font-weight:bold ; text-shadow: 1px 1px #3359df; color: #3359df; font-size: larger; color: #3359df;">
+                                                <th>Unit Name</th>
+                                                <th>Bedrooms</th>
+                                                <th>Bathrooms</th>
+                                                <th>Monthy Rent</th>
+                                                <th>Status</th>
+                                                <th>Owner</th>
+                                                <th>Payments</th>
                                             </tr>
-                                            <%end%>
+                                        </thead>
+                                        <tbody style=" text-transform: uppercase; text-shadow: 1px  2px 2px #7cb8e0">
 
-                                    </tbody>
 
-                                </table>
-                            </div>
+                                            <% @units.each do |unit|%>
+                                                <%if unit.status=="occupied" %>
+                                                    <tr>
+                                                        <td>
+                                                            <%=unit.name%>
+                                                        </td>
+                                                        <td>
+                                                            <%=unit.bedrooms%>
+                                                        </td>
+                                                        <td>
+                                                            <%=unit.bathrooms%>
+                                                        </td>
+                                                        <td>
+                                                            <%=unit.rent%>
+
+                                                        </td>
+                                                        <td>
+
+                                                            <%=unit.status%>
+                                                        </td>
+                                                        <td>
+
+                                                            <%=unit.tenant_firstname%>
+
+                                                        </td>
+                                                        <td>
+
+                                                            <%= link_to "check payments" , unit_payments_path(unit.id)
+                                                                %>
+
+                                                        </td>
+                                                    </tr>
+                                                    <%end%>
+                                                        <%end%>
+                                        </tbody>
+
+                                    </table>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    <div>

@@ -1,18 +1,17 @@
 <div class="container signup ">
-    <div class="vh-100 align-items-center justify-content-center ">
-        <p class="  align-items-center justify-content-center text-start fw-bolder p-3 text-uppercase ">
-            <%=link_to '<i class="bi-arrow-left-circle text-black  text-center fa-2x  "></i>' .html_safe ,
-                dashboard_url%>
-        </p>
+    <div class=" align-items-center justify-content-center ">
         <%=form_with model: @tenant,data: {turbo: false} do |f|%>
+            <p class="  align-items-center justify-content-center text-start fw-bolder  text-uppercase ">
+                <%=link_to '<i class="bi-arrow-left-circle text-black  text-center fa-2x  "></i>' .html_safe ,
+                    dashboard_url%>
+            </p>
+
             <div class="row d-flex align-items-center justify-content-center shadow ">
 
                 <div class="col-md-6 col-sm-12 col-xs-12   ">
-                    <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">Invite New Tenant
+                    <h6 class=" text-center fw-bold text-uppercase" style="color: #3359df;">Tenant Lease Details
                     </h6>
-                    <div class="d-flex ms-auto fw-bolder text-black">
-                        Personal Details
-                    </div>
+
                     <% if @tenant.errors.any? %>
                         <div id="error_explanation">
                             <h6>
@@ -30,44 +29,38 @@
                         <% end %>
 
 
-                            <div class="form-group  mb-1">
-                                <%= f.label :firstname %>
+                            <div class="form-group  mb-2">
+                                <%= f.label :firstname,class:"form-label" %>
                                     <%= f.text_field :firstname, class: 'form-control active' %>
                             </div>
-                            <div class=" form-group mb-3">
+                            <div class=" form-group mb-2">
                                 <%=f.label :lastname,class:"form-label"%>
                                     <%=f.text_field :lastname,class:"form-control"%>
                             </div>
-                            <div class=" form-group mb-3">
+                            <div class=" form-group mb-2">
                                 <%=f.label :phone,class:"form-label"%>
                                     <%=f.number_field :phone,class:"form-control"%>
                             </div>
-                            <div class="form-group ">
+                            <div class="form-group mb-2">
                                 <%= f.label :email ,class:"form-label" %>
                                     <%= f.email_field :email, class: 'form-control active' %>
-                                        <div id="emailHelp" class="form-text">We'll never share your
-                                            email with
-                                            anyone
-                                            else.
-                                        </div>
+
                             </div>
-                            <div class=" form-group mb-3">
+                            <div class=" form-group mb-2">
                                 <%=f.label :password,class:"form-label"%>
                                     <%=f.password_field :password,class:"form-control"%>
                             </div>
-                            <div class=" form-group mb-3">
+                            <div class=" form-group mb-2">
                                 <%=f.label :password_confirmation,class:"form-label"%>
                                     <%=f.password_field :password_confirmation,class:"form-control"%>
                             </div>
 
 
                 </div>
-                <div class="col-md-5 col-sm-12 col-xs-12  p-5 ">
-                    <h6 class=" text-center fw-bold p-3 text-uppercase" style="color: #3359df;">Unit Details
+                <div class="col-md-5 col-sm-12 col-xs-12  mt-5  ">
+                    <h6 class=" text-center fw-bold text-uppercase mt-1" style="color: #3359df;">Unit Lease Details
                     </h6>
-                    <div class="d-flex ms-auto my-3 my-lg-0 fw-bolder text-black">
-                        <%=current_user.email%>
-                    </div>
+
                     <% if @tenant.errors.any? %>
                         <div id="error_explanation">
                             <h6>
@@ -84,41 +77,43 @@
                         </div>
                         <% end %>
 
-                            <div class="form-group">
+                            <div class="form-group mb-2 ">
                                 <%= f.label :property,class:"form-label" %>
                                     <%= f.collection_select :property_id, @properties, :id, :name, {}, {
                                         class: "form-control" ,id: 'property-select' } %>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-2">
                                 <%= f.label :unit,class:"form-label" %>
                                     <%= f.collection_select :unit_id, @units, :id, :name, {}, { class: "form-control" ,
                                         id: 'unit-select' , disabled: true } %>
                             </div>
-                            <div class="form-group  mb-1">
+                            <div class="form-group  mb-2">
                                 <%= f.label :date_of_lease %>
                                     <%= f.date_field :date_of_lease, class: 'form-control active' %>
                             </div>
-                            <div class=" form-group mb-3">
+                            <div class="form-group  mb-2">
+                                <%= f.label :end_date_of_lease %>
+                                    <%= f.date_field :end_date_of_lease, class: 'form-control active' %>
+                            </div>
+                            <div class=" form-group mb-2">
                                 <%=f.label :rent_amount,class:"form-label"%>
                                     <%=f.number_field :rent_amount,class:"form-control"%>
                             </div>
-                            <div class=" form-group mb-3">
+                            <div class=" form-group mb-2">
                                 <%=f.label :deposit,class:"form-label"%>
                                     <%=f.number_field :deposit,class:"form-control"%>
                             </div>
 
-                            <div class=" form-group mb-3">
-                                <%=f.label :rent_due,class:"form-label"%>
-                                    <%=f.date_field :rent_due,class:"form-control"%>
-                            </div>
 
-                            <div class="b_submit d-flex justify-content-center align-content-center">
-                                <%= f.submit "invite Tenant" , class: " mt-2
+                            <div class="button_submit d-flex justify-content-center align-content-center mb-4">
+                                <%= f.submit "invite Tenant" , class: " 
                              btn
                             btn-primary" %>
                             </div>
 
+
                 </div>
+
                 <%end%>
             </div>
     </div>

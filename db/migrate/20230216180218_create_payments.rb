@@ -4,7 +4,7 @@ class CreatePayments < ActiveRecord::Migration[7.0]
       t.decimal :amount
       t.date :date_paid
       t.string :payment_method
-      t.text :notes
+      t.decimal :balance
       t.references :tenant, null: false, foreign_key: true
       t.references :unit, null: false, foreign_key: true
 

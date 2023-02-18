@@ -1,0 +1,42 @@
+<!-- app/views/payments/show.html.erb -->
+
+<h6>Payment Details <%= @payments %>
+</h6>
+<p class="  align-items-center justify-content-center text-start fw-bolder  text-uppercase ">
+    <%=link_to '<i class="bi-arrow-left-circle text-black  text-center fa-2x  "></i>' .html_safe , dashboard_url%>
+</p>
+<table class="table">
+    <tr>
+        <th>Amount</th>
+        <td>
+            <%= number_to_currency(@payments.amount) %>
+        </td>
+    </tr>
+    <tr>
+        <th>Date</th>
+        <td>
+            <%= @payments.date.strftime("%B %e, %Y") %>
+        </td>
+    </tr>
+    <tr>
+        <th>Tenant</th>
+        <td>
+            <%= @payments.tenant.name %>
+        </td>
+    </tr>
+    <tr>
+        <th>Unit</th>
+        <td>
+            <%= @payments.unit.number %>
+        </td>
+    </tr>
+    <tr>
+        <th>Note</th>
+        <td>
+            <%= @payments.note %>
+        </td>
+    </tr>
+</table>
+
+<%= link_to "Edit Payment" , edit_payment_path(@payment.unit,@paymen), class: 'btn btn-primary' %>
+    <%= link_to "Back to Payments" , payments_path, class: 'btn btn-secondary' %>

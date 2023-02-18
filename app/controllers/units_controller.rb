@@ -1,8 +1,15 @@
 class UnitsController < ApplicationController
-
+  def show
+    @units = Unit.find(params[:id])
+  end
   def index
     @account = current_user.account
-    @units = @account.properties.joins(:units).distinct.select("units.*")
+    # @units = @account.properties.joins(:units).distinct.select("units.*")
+    @units = @account.properties.joins(units: :tenant)
+                            .distinct
+                            .select("units.*, tenants.firstname AS tenant_firstname, tenants.lastname AS tenant_lastname")
+
+
     @properties = @account.properties
   end
 
@@ -40,7 +47,5 @@ class UnitsController < ApplicationController
   end
   
 
-  def show
-    @units = Unit.find(params[:id])
-  end
+ 
 end
