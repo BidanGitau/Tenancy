@@ -2,7 +2,9 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = {host:'tenancy-production.up.railway.app'}
+  config.action_mailer.default_url_options = {
+    host: "tenancy-production.up.railway.app",
+  }
   # Code is not reloaded between requests.
   config.cache_classes = true
   config.require_master_key = true
@@ -13,7 +15,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
@@ -53,7 +55,7 @@ Rails.application.configure do
   config.log_level = :info
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -67,7 +69,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -84,13 +86,13 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
   # Do not dump schema after migrations.
-  
+
   # ActionMailer::Base.smtp_settings = {
   #   :user_name => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
   #   :password => Rails.application.credentials.dig(:sendgrid, :access_key), # This is the secret sendgrid API key which was issued during API key creation
@@ -101,11 +103,11 @@ Rails.application.configure do
   #       :enable_starttls_auto => true
   # }
   ActionMailer::Base.smtp_settings = {
-    domain: 'https://tenancy-production.up.railway.app',
-    address:        "smtp.sendgrid.net",
-    port:            587,
+    domain: "sandboxd0c0f316e8c442058a0b75244c249f04.mailgun.org",
+    address: "smtp.sendgrid.net",
+    port: 587,
     authentication: :plain,
-    user_name:      'apikey',
-    password:       Rails.credentials.dig(:sendgrid,:access_key)
-}
+    user_name: "apikey",
+    password: Rails.credentials.dig(:sendgrid, :access_key),
+  }
 end

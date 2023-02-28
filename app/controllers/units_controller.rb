@@ -5,13 +5,17 @@ class UnitsController < ApplicationController
   def index
     @account = current_user.account
     # @units = @account.properties.joins(:units).distinct.select("units.*")
-    @units = @account.properties.joins(units: :tenant)
-                            .distinct
-                            .select("units.*, tenants.firstname AS tenant_firstname, tenants.lastname AS tenant_lastname")
-
+    @units =
+      @account
+        .properties
+        .joins(units: :tenant)
+        .distinct
+        .select(
+          "units.*, tenants.firstname AS tenant_firstname, tenants.lastname AS tenant_lastname",
+        )
 
     @properties = @account.properties
-    @payment=Payment.all
+    @payment = Payment.all
   end
 
   # def index
@@ -23,30 +27,37 @@ class UnitsController < ApplicationController
     @unit = Unit.new
     @properties = Property.all
   end
-  
+
   def create
     @unit = Unit.new(unit_params)
     if @unit.save
       property = @unit.property
-      rentals=property.no_units
-      property.update(no_units:rentals.to_i + 2)
+      rentals = property.no_units
+      property.update(no_units: rentals.to_i + 2)
       redirect_to properties_path
     else
-      render 'new'
+      render "new"
     end
   end
-  
+
   def search
     property_name = params[:property_name]
-    @units = Unit.joins(:property).where('properties.name LIKE ?', "%#{property_name}%")
+    @units =
+      Unit.joins(:property).where(
+        "properties.name LIKE ?",
+        "%#{property_name}%",
+      )
   end
 
   private
-  
-  def unit_params
-    params.require(:unit).permit(:name, :bedrooms, :bathrooms, :rent, :property_id)
-  end
-  
 
- 
+  def unit_params
+    params.require(:unit).permit(
+      :name,
+      :bedrooms,
+      :bathrooms,
+      :rent,
+      :property_id,
+    )
+  end
 end
