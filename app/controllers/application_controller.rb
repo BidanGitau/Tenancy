@@ -14,10 +14,33 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(_resource)
     dashboard_path() # Redirects to the user's dashboard page
   end
+
   protected
+
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:signup,keys:[:firstname,:lastname])
-    devise_parameter_sanitizer.permit(:user_update,keys:[:firstname,:lastname])
+    devise_parameter_sanitizer.permit(:signup, keys: %i[firstname lastname])
+    devise_parameter_sanitizer.permit(
+      :user_update,
+      keys: %i[firstname lastname],
+    )
   end
-  
+
+  private
+
+  def calculate_rent_collected(property)
+    units = property.units.includes(:tenant)
+    rent_collected = {}
+
+    units.each do |unit|
+      total_collected = 0
+
+      unit.leases.each do |lease|
+        total_collected += lease.payments.sum(:amount)
+      end
+
+      rent_collected[unit.number] = total_collected
+    end
+
+    rent_collected
+  end
 end

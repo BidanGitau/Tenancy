@@ -3,17 +3,11 @@ class Property < ApplicationRecord
   has_many :units
   has_many :tenants, through: :units
 
-#  def self.rent_paid
-#     units.joins(:payments).sum(:amount)
-#      end
-
-#   def self.balance
-#     rent - rent_paid
-#   end
+  def total_rent_collected
+    units.sum(:rent)
+  end
 
   def self.for_logged_in_user
-    ActsAsTenant.with_tenant(current_user.account) do
-      all
-    end
+    ActsAsTenant.with_tenant(current_user.account) { all }
   end
 end

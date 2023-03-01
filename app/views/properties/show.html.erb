@@ -1,60 +1,108 @@
-<div class="container-fluid  aligns-items-center justify-content-center">
-    <div class="row ">
+<%=render "layouts/nav" %>
+    <div class="container-fluid  aligns-items-center justify-content-center">
+        <div class="row ">
 
-        <div class="col-md-12 mb-3  d-flex aligns-items-center justify-content-start  ">
-            <div class="   fw-bolder p-3 text-uppercase ">
-                <%=link_to '<i class="bi-arrow-left-circle text-black  fa-2x  "></i>' .html_safe , dashboard_url%>
+            <div class="col-md-12  d-flex aligns-items-center justify-content-start  ">
+
+                <div>
+
+                </div>
+
+
             </div>
-            <div>
-                <h4 class=" text-center  mt-4 " style="color: #3359df;">
-                    Back to Dashboard
-                </h4>
+
+            <div class="col-md-12 fw-bolder text-center  d-flex align-items-center justify-content-between"
+                style="color: #3359df;">
+                <div class="d-flex align-items-center justify-content-around ">
+                    <%= link_to '<i class="bi-arrow-left-circle text-black fa-2x me-3"></i>' .html_safe, properties_url
+                        %>
+                        <h5 class="mb-0 ml-3">Tenants in <%= @property.name %>
+                        </h5>
+
+                </div>
+                <h5 class="mb-0 ">House Units
+                </h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 p-2">
+                <div class="card">
+                    <div class="row">
+
+                        <div class="col-12   align-items-center justify-content-between ">
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @tenants.each do |tenant| %>
+                                        <tr class="shadow">
+                                            <td>
+                                                <%= tenant.firstname %>
+                                            </td>
+                                            <td>
+                                                <%= tenant.lastname %>
+                                            </td>
+                                            <td>
+                                                <%= tenant.email %>
+                                            </td>
+                                            <td>
+                                                <%= tenant.phone %>
+                                            </td>
+                                        </tr>
+                                        <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
+            <div class="col-6 p-2">
 
-        </div>
+                <div class="card">
+                    <div class="row">
 
-        <div class="col-md-12 fw-bolder ms-5 mb-3 d-flex aligns-items-center justify-content-start"
-            style="color: #3359df;">
-            Tenants in <%= @property.name %>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="row">
-                    <% @tenants.each do |tenant| %>
-                        <div class="col-3">
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <%= tenant.firstname %>
-                                </div>
-                            </div>
+                        <div class="col-12   align-items-center justify-content-between ">
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">name</th>
+                                        <th scope="col">Bathrooms</th>
+                                        <th scope="col">Bedrooms</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @units.each do |unit| %>
+                                        <tr class="shadow">
+                                            <td>
+                                                <%= unit.name %>
+                                            </td>
+                                            <td>
+                                                <%= unit.bathrooms %>
+                                            </td>
+                                            <td>
+                                                <%= unit.bedrooms %>
+                                            </td>
+                                            <td>
+                                                <%= unit.status %>
+                                            </td>
+                                        </tr>
+                                        <% end %>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="col-3">
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <%= tenant.lastname %>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <%= tenant.email %>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <%= tenant.phone %>
-                                </div>
-                            </div>
-                        </div>
-                        <%end%>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <%= @total_rent_collected%>

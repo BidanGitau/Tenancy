@@ -51,54 +51,24 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
                 <div class="card h-100">
                     <div class="card-header">
                         <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                        Units Status
+                        Revenue Collection per Property
                     </div>
 
 
 
                     <div class="  card-body chart-container" width="200px" height="200px">
-                        <%= pie_chart @units.group(:status).count %>
+
+                        <%= pie_chart Property.all.map { |p| [p.name, p.total_rent_collected] } %>
+
                     </div>
 
                 </div>
             </div>
-            <div class="col-md-3 mb-3">
-                <div class="card h-100">
-                    <div class="card-header">
-                        <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                        Units per Property
-                    </div>
-
-                    <div class="  card-body chart-container" width="200px" height="200px">
-                        <%= column_chart @units_by_property, xtitle: 'Property' , ytitle: 'Units' , stacked: true,
-                            library: { title: { text: 'Units by Property' } } %>
-
-
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <div class="card h-100">
-                    <div class="card-header">
-                        <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                        Units Status
-                    </div>
-
-
-
-                    <div class="  card-body chart-container" width="200px" height="200px">
-                        <%= pie_chart @units.group(:status).count %>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
                 <div class="card h-100">
                     <div class="card-header">
                         <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
@@ -115,6 +85,22 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+                        Units Status
+                    </div>
+
+
+
+                    <div class="  card-body chart-container" width="200px" height="200px">
+                        <%= pie_chart @units.group(:status).count %>
+                    </div>
+
+                </div>
+            </div>
+
 
 
 

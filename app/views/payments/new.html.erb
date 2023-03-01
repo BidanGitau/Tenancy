@@ -1,46 +1,50 @@
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            <h1>New Payment</h1>
+<%=render "layouts/nav" %>
+    <div class="container">
+        <div class="row">
 
-            <%= form_with(model: [@unit, @payment], url: unit_payments_path(@units)) do |f| %>
-                <div class="form-control m-3">
-                    <%= f.label :amount %>
-                        <%= f.number_field :amount, class: 'form-control' %>
-                </div>
 
-                <div class="form-control m-3">
-                    <%= f.label :date %>
-                        <%= f.date_field :date, class: 'form-control' %>
-                </div>
+            <div class="col-12">
+                <h6 class="text-center">New Payment for [ <%=@unit.name%>]</h6>
 
-                <div class="form-control m-3">
-                    <%= f.label :tenant_id, "Tenant" %>
-                        <%= f.collection_select(:tenant_id, Tenant.all, :id, :firstname, {selected: @unit.tenant.id},
-                            {class: 'form-control' }) %>
-                </div>
+                <%= form_with(model: [@unit, @payment], url: unit_payments_path(@units)) do |f| %>
+                    <div class="form-control m-3">
+                        <%= f.label :amount %>
+                            <%= f.number_field :amount, class: 'form-control' %>
+                    </div>
 
-                <div class="form-control m-3">
-                    <%= f.collection_select(:tenant_id, Tenant.where(id: @unit.tenant_id), :id, :full_name, { }, {
-                        class: "form-control" , disabled: true }) %>
+                    <div class="form-control m-3">
+                        <%= f.label :date %>
+                            <%= f.date_field :date, class: 'form-control' %>
+                    </div>
 
-                </div>
-                <%=@unit.name%>
+                    <div class="form-control m-3 d-none">
+                        <%= f.label :tenant_id, "Tenant" %>
+                            <%= f.collection_select(:tenant_id, Tenant.all, :id, :full_name, {selected:
+                                @unit.tenant.id}, {class: 'form-control hidde' }) %>
+                    </div>
+
+                    <div class="form-control m-3">
+                        <%= f.label :tenant_id, "Tenant" %>
+                            <%= f.collection_select(:tenant_id, Tenant.where(id: @unit.tenant_id), :id, :full_name, { },
+                                { class: "form-control" , disabled: true }) %>
+
+                    </div>
+
                     <div class="form-control m-3">
 
                         <%= f.collection_select(:payment_type, @payment_types, :to_s, :to_s,
                             {prompt: "Select a payment type" }, {class: 'form-control' }) %>
 
                     </div>
-                    <div>
+                    <div class="form-control m-3">
                         <%= f.label :note %>
                             <%= f.text_area :note, class: 'form-control' %>
                     </div>
 
-                    <div>
+                    <div class="d-flex justify-content-center align-items-center">
                         <%= f.submit "Make Payment" , class: 'btn btn-primary' %>
                     </div>
                     <% end %>
+            </div>
         </div>
     </div>
-</div>
